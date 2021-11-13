@@ -1,5 +1,6 @@
 import sqlite3
 from employee import Employee
+import json
 
 # conn = sqlite3.connect('employee.db')
 
@@ -59,7 +60,9 @@ insertEmployee(emp_5)
 insertEmployee(emp_6)
 insertEmployee(emp_7)
 
-print(getAllEmployee())
+emp= getAllEmployee()
+
+print(emp)
 
 emps = getEmployeeByFirstName ('Akib')
 print(emps)
@@ -71,3 +74,6 @@ print(getAllEmployee())
 
 conn.commit()
 conn.close()
+
+with open('employee.json','w') as f:
+    json.dump(emp,f,indent=2)
